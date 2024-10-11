@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/iz"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/FN"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="450dp"
+            android:text="Для продолжения кликните на экран"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/FL"
+        android:layout_marginTop="20dp"
+        android:background="#D1895D"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Войдите в учётную запись или зарегистрируйтесь"
+                android:textSize="28dp"></TextView>
+
+            <Button
+                android:id="@+id/BT1"
+                android:text="Вход"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_exit" />
+
+            <Button
+                android:id="@+id/BT2"
+                android:text="Регистрация"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="200dp"
+                android:layout_height="55dp"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_exit"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/LL1"
+        android:background="#D1895D"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:text="Регистрация"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="Регистрация открыта ТОЛЬКО для менеджеров"/>
+
+        <EditText
+            android:id="@+id/ET1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:hint="ФИО                                   "/>
+    <EditText
+        android:id="@+id/ET2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:hint="Логин                                "/>
+        <EditText
+            android:id="@+id/ET3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:inputType="textPassword"
+            android:layout_gravity="center"
+            android:hint="Пароль                               "/>
+        <EditText
+            android:id="@+id/ET4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:hint="Номер телефона             "/>
+        <Button
+            android:id="@+id/BTT"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_exit"
+            android:text="Зарегистрироваться"/>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Если вы зарегистрированы,"/>
+            <TextView
+                android:id="@+id/TV3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="#000000"
+                android:text="войдите"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text=" в аккаунт"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#D1895D"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/LL2"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
+            android:layout_gravity="center"
+            android:text="Авторизация"/>
+        <EditText
+            android:id="@+id/ETT1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:hint="Введите nickname       "/>
+        <EditText
+            android:id="@+id/ETT2"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:inputType="textPassword"
+            android:hint="Введите пароль          "/>
+        <Button
+            android:id="@+id/BT"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_exit"
+            android:text="Войти"
+            />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Если вы не зарегистрированы,кликнете "/>
+            <TextView
+                android:id="@+id/TV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="#000000"
+                android:text="здесь"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

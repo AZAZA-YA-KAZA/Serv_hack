@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#CEA58C"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ex">
+
+    <TextView
+        android:text="Сотрудники"
+        android:background="#9E6541"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="35dp"
+        android:layout_gravity="center">
+    </TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/RV"
+        tools:listitem="@layout/activity_list_progger"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>
