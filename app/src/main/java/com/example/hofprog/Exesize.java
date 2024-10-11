@@ -4,6 +4,7 @@ import static com.example.hofprog.ForProg.f;
 import static com.example.hofprog.MainActivity.ni;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -197,9 +198,17 @@ public class Exesize extends AppCompatActivity {
                             if (Objects.equals(data[0], ""))
                                 Toast.makeText(Exesize.this, "Выберите дату", Toast.LENGTH_SHORT).show();
                             else {
-                                newtask tac = new newtask(ni + " " + data[0], et1.getText().toString(), et2.getText().toString());
-                                long ii = newViewModel.insert(tac);
-                                tac.setNew_id((int) ii);
+                                new Thread(() -> {
+                                    System.out.println("TASK" + ni + et1.getText().toString() + " " + data[0] + et2.getText().toString());
+                                    newtask tac = new newtask(ni, et1.getText().toString() + " " + data[0], et2.getText().toString());
+                                    long ii = newViewModel.insert(tac);
+                                    tac.setNew_id((int) ii);
+                                    System.out.println("GOOD");
+                                    runOnUiThread(() -> {
+                                        Intent intent = new Intent(Exesize.this, ForMan.class);
+                                        startActivity(intent);
+                                    });
+                                }).start();
                             }
                         }
                     }
