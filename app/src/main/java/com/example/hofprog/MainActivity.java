@@ -101,7 +101,16 @@ public class MainActivity extends AppCompatActivity {
             allw.observe(this, whoiList -> {
                 for (whoi it : whoiList) {
                     System.out.println(storedValue+ it.getNick());
-                    if (Objects.equals(it.getNick(), storedValue)) {
+                    new java.security.SecureRandom().nextBytes(iv);
+                    // Расшифровка данных
+                    String decryptedData = null;
+                    try {
+                        decryptedData = decrypt(it.getNick(), secretKey, iv);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                    System.out.println("Расшифрованные данные: " + decryptedData);
+                    if (Objects.equals(decryptedData, storedValue)) {
                         ni = storedValue;
                         System.out.println("aaa");
                         if (it.getMan() == 1) {
