@@ -22,13 +22,10 @@ public class ManageRepository {
 
     // Конструктор класса
     public ManageRepository(Application application) {
-        // Инициализация базы данных Room и UserDao
-        AppDatabase db = Room.databaseBuilder(application.getApplicationContext(),
-                AppDatabase.class, "database-name").build();
+        // Получение экземпляра базы данных через DatabaseProvider
+        AppDatabase db = AppDatabase.getDatabase(application);
         userDao = db.manageDao();
-        // Получение LiveData для всех пользователей
         allUsers = userDao.getAllUsers();
-        // Инициализация пула потоков
         executorService = Executors.newFixedThreadPool(2);
     }
     public int countUsersByName(String name) {

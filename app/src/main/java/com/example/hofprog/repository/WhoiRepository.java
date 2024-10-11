@@ -22,13 +22,10 @@ public class WhoiRepository {
 
     // Конструктор класса
     public WhoiRepository(Application application) {
-        // Инициализация базы данных Room и UserDao
-        AppDatabase db = Room.databaseBuilder(application.getApplicationContext(),
-                AppDatabase.class, "Whoi").build();
+        // Получение экземпляра базы данных через DatabaseProvider
+        AppDatabase db = AppDatabase.getDatabase(application);
         userDao = db.whoiDao();
-        // Получение LiveData для всех пользователей
         allUsers = userDao.getAllUsers();
-        // Инициализация пула потоков
         executorService = Executors.newFixedThreadPool(2);
     }
 

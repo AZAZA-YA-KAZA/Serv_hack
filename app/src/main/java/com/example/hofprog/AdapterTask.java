@@ -111,14 +111,16 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
                         holder.itemImageView.setBackgroundColor(Color.GREEN);
                     }
                 }
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(context, Opis_task.class);
-                        intent.putExtra("y", y);
-                        intent.putExtra("nick", nick);
-                        context.startActivity(intent);
-                    }
+                ((Activity) context).runOnUiThread(() -> {
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(context, Opis_task.class);
+                            intent.putExtra("y", y);
+                            intent.putExtra("nick", nick);
+                            context.startActivity(intent);
+                        }
+                    });
                 });
             } else {
                 if (st.size() > 0 && !Objects.equals(st.get(0), "")/* && Objects.equals(dat.get(y).split(" ")[1], "1")*/) {

@@ -1,6 +1,8 @@
 package com.example.hofprog;
 
 import static android.content.Intent.getIntent;
+import static com.example.hofprog.MainActivity.decrypt;
+import static com.example.hofprog.MainActivity.encrypt;
 import static com.example.hofprog.MainActivity.ni;
 import static com.example.hofprog.ex.f;
 
@@ -75,12 +77,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         int y = position;
         holder.ordinalNumberTextView.setText(String.valueOf(position + 1));
         holder.ordinalNumberTextView.setText(String.valueOf(y + 1) + ". " + fio.get(y));
-        holder.passwd.setText("Пароль: " + pas.get(y));
-        holder.login.setText("Логин: " + st.get(y));
+        String encryptedData;
+        String encryptedData1;
+        try {
+            encryptedData = decrypt(pas.get(y));
+            encryptedData1 = decrypt(st.get(y));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        holder.passwd.setText("Пароль: " + encryptedData);
+        holder.login.setText("Логин: " + encryptedData1);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(flag+" FLAG");
+                System.out.println(flag + " FLAG");
                 if (!Objects.equals(flag, null)) {
                     LiveData<List<newtask>> task = newViewModel.getAllUsers();
                     task.observe((LifecycleOwner) context, tsList -> {
@@ -92,13 +102,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     });
 
                     new Thread(() -> {
-                        oldtask tsk = new oldtask(holder.login.getText().toString().substring(holder.login.getText().toString().indexOf(' ')+1), yy+" "+d, p);
+                        String encryptedDat;
+                        try {
+                            encryptedDat = encrypt(holder.login.getText().toString().substring(holder.login.getText().toString().indexOf(' ') + 1));
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                        System.out.println(encryptedDat + " QWERTY");
+                        oldtask tsk = new oldtask(encryptedDat, yy + " " + d, p);
                         long idd = oldViewModel.insert(tsk);
                         System.out.println(tsk.toString());
                         tsk.setOld_id((int) idd);
                         ((Activity) context).runOnUiThread(() -> {
                             Intent intent = new Intent(context, ForMan.class);
-                            System.out.println(ni+"  nii");
+                            System.out.println(ni + "  nii");
                             context.startActivity(intent);
                         });
                     }).start();

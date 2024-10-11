@@ -22,13 +22,10 @@ public class ProgerRepository {
 
     // Конструктор класса
     public ProgerRepository(Application application) {
-        // Инициализация базы данных Room и UserDao
-        AppDatabase db = Room.databaseBuilder(application.getApplicationContext(),
-                AppDatabase.class, "Programmer").build();
+        // Получение экземпляра базы данных через DatabaseProvider
+        AppDatabase db = AppDatabase.getDatabase(application);
         userDao = db.progerDao();
-        // Получение LiveData для всех пользователей
         allUsers = userDao.getAllUsers();
-        // Инициализация пула потоков
         executorService = Executors.newFixedThreadPool(2);
     }
     public int countUsersByName(String name) {

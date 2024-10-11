@@ -138,10 +138,12 @@ public class Opis_task extends AppCompatActivity {
                 System.out.println(17);
                 mn.setVisibility(View.GONE);//смотрим статус задачи
                 System.out.println(oldViewModel.findAll(nam.getText().toString()+ " "+dat.get(y).split(" ")[0]));
-                if (oldViewModel.findAll(nam.getText().toString()+ " "+dat.get(y).split(" ")[0]) == 2)
+                if (oldViewModel.findAll(nam.getText().toString()+ " "+dat.get(y).split(" ")[0]) != 1)
                     pr.setVisibility(View.GONE);
                 System.out.println(18);
             }
+            else
+                pr.setVisibility(View.GONE);
         }).start();
         mn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -102,6 +102,7 @@ public class Exesize extends AppCompatActivity {
                 LiveData<List<oldtask>> t = oldViewModel.getAllUsers();
                 t.observe(Exesize.this, tList -> {
                     for (oldtask ipp : tList) {
+                        System.out.println(ipp.getFor_who());
                         if (Objects.equals(ipp.getFor_who(), ni) && ipp.getStat() == 1) {
                             st.add(ipp.getName().substring(0, ipp.getName().lastIndexOf(' ')));
                             System.out.println(ipp.getName().substring(ipp.getName().lastIndexOf(' ')+1) + " " + ipp.getStat());

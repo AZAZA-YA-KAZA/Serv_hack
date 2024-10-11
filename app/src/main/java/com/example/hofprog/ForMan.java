@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.hofprog.MainActivity.decrypt;
+import static com.example.hofprog.MainActivity.encrypt;
 import static com.example.hofprog.MainActivity.id;
 import static com.example.hofprog.MainActivity.ni;
 import static com.example.hofprog.ForProg.f;
@@ -154,11 +156,21 @@ public class ForMan extends AppCompatActivity {
                                     Toast.makeText(ForMan.this, "Такой пользователь уже существует", Toast.LENGTH_SHORT).show();
                                 });
                                 } else {
-                                    whoi who = new whoi(et2.getText().toString(), 0, 1);
+                                    String encryptedData = null;
+                                    String encryptedData1 = null;
+                                    try {
+                                        encryptedData = encrypt(et2.getText().toString());
+                                        encryptedData1 = encrypt(et3.getText().toString());
+                                    } catch (Exception e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    String finalEncryptedData = encryptedData;
+                                    String finalEncryptedData1 = encryptedData;
+                                    whoi who = new whoi(encryptedData, 0, 1);
                                     long idi = whoiViewModel.insert(who);
                                     who.setId((int) idi);
-                                    proger prog = new proger(et1.getText().toString(), et2.getText().toString(),
-                                            et3.getText().toString(), et4.getText().toString(), ni);
+                                    proger prog = new proger(et1.getText().toString(), encryptedData,
+                                            encryptedData1, et4.getText().toString(), ni);
                                     idi = progerViewModel.insert(prog);
                                     prog.setProg_id((int) idi);
                                     runOnUiThread(()-> {

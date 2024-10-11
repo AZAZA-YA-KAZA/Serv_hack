@@ -23,13 +23,10 @@ public class OldRepository {
 
     // Конструктор класса
     public OldRepository(Application application) {
-        // Инициализация базы данных Room и UserDao
-        AppDatabase db = Room.databaseBuilder(application.getApplicationContext(),
-                AppDatabase.class, "database-name").build();
+        // Получение экземпляра базы данных через DatabaseProvider
+        AppDatabase db = AppDatabase.getDatabase(application);
         userDao = db.oldTaskDao();
-        // Получение LiveData для всех пользователей
         allUsers = userDao.getAllUsers();
-        // Инициализация пула потоков
         executorService = Executors.newFixedThreadPool(2);
     }
 
