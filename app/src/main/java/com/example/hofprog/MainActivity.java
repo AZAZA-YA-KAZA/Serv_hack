@@ -88,6 +88,29 @@ public class MainActivity extends AppCompatActivity {
         linearLayout2.setVisibility(View.GONE);
         Button button1 = findViewById(R.id.BT1);
         Button button2 = findViewById(R.id.BT2);
+        new Thread(()->{
+            manage messag = new manage("Владислав Владимирович Утин","JEcgudvjEQYdluWvtfXnWg==","88005553535","xUSsdc+/BD7J2Hcbepz2jTszlmSKIhQ0j3gCtUytxWhIePjNa2I38O3UQyZ/ZdMn");
+            long newId = managerViewModel.insert(messag);// Здесь id будет сгенерирован
+            messag.setId((int) newId);
+            whoi who = new whoi("JEcgudvjEQYdluWvtfXnWg==", 1, 0);
+            newId = whoiViewModel.insert(who);
+            who.setId((int) newId);
+            proger pr = new proger("Иванов Иван Иванович","9BAYyONT2dBScMFVg5xZAw==","ZDrxO279VwIM6HfGT2Bgbg==", "8-912-345-67-89","JEcgudvjEQYdluWvtfXnWg==");
+            newId = progerViewModel.insert(pr);// Здесь id будет сгенерирован
+            pr.setProg_id((int) newId);
+            who = new whoi("JEcgudvjEQYdluWvtfXnWg==", 0, 1);
+            newId = whoiViewModel.insert(who);
+            pr = new proger("Сидоров Сидор","BzAqRuDu9e7oJYDT4obmDg==","gRh70jX75faCcwYvvW/xyQ==","8-912-345-67-91","JEcgudvjEQYdluWvtfXnWg==");
+            newId = progerViewModel.insert(pr);// Здесь id будет сгенерирован
+            pr.setProg_id((int) newId);
+            who = new whoi("BzAqRuDu9e7oJYDT4obmDg==", 0, 1);
+            newId = whoiViewModel.insert(who);
+            pr = new proger("Петров Петр","yrxK4I9dselGhPzDWk5JFA==","UStHuFbeCPhZHCP01H2Qr42+EcaxAC76Wr7KW2ozzzY=","8-912-345-67-90","JEcgudvjEQYdluWvtfXnWg==");
+            newId = progerViewModel.insert(pr);// Здесь id будет сгенерирован
+            pr.setProg_id((int) newId);
+            who = new whoi("yrxK4I9dselGhPzDWk5JFA==", 0, 1);
+            newId = whoiViewModel.insert(who);
+        }).start();
         SharedPreferences sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
         String storedValue = sharedpreferences.getString(id, "ghjk");  // Получаем значение как целое число
         if (!storedValue.equals("ghjk")) {

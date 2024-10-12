@@ -76,6 +76,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         sqlBuilder.append(line).append("n");
                     }
                     reader.close();
+                    System.out.println(sqlBuilder.toString());
                     db.execSQL(sqlBuilder.toString()); // Выполняем SQL запросы
                 }
             }
